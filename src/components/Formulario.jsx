@@ -71,7 +71,7 @@ export const Formulario = () => {
                 navigate("/");
             }, 2000);
         } catch (error) {
-            console.error("❌ Error del servidor:", error.response?.data || error);
+            console.error("Error del servidor:", error.response?.data || error);
             setMensaje({ respuesta: error.response?.data?.msg || "Error al registrar", tipo: "error" });
         }
     };

@@ -23,7 +23,7 @@ const Perfil = () => {
           setUpdatedApellido(data.apellido);
         })
         .catch(() => {
-          setMensaje("⚠️ Error al cargar el perfil.");
+          setMensaje("Error al cargar el perfil.");
         });
     }
   }, [navigate]);
@@ -41,7 +41,7 @@ const Perfil = () => {
   const handleProfileUpdate = async (e) => {
     e.preventDefault();
     if (!updatedNombre.trim() || !updatedApellido.trim()) {
-      setMensaje("⚠️ El nombre y apellido no pueden estar vacíos.");
+      setMensaje("El nombre y apellido no pueden estar vacíos.");
       return;
     }
     try {
@@ -49,24 +49,23 @@ const Perfil = () => {
         nombre: updatedNombre,
         apellido: updatedApellido,
       });
-      setMensaje("✅ Perfil actualizado con éxito.");
+      setMensaje("Perfil actualizado con éxito.");
       setTimeout(() => {
         navigate("/perfil");
-        navigate(0);
       }, 1000);
     } catch (error) {
-      setMensaje("❌ Error al actualizar el perfil.");
+      setMensaje("Error al actualizar el perfil.");
     }
   };
 
   const handleSubmitPassword = async (e) => {
     e.preventDefault();
     if (!form.passwordactual || !form.password || !form.confirmpassword) {
-      setMensaje("⚠️ Todos los campos de contraseña son obligatorios.");
+      setMensaje("Todos los campos de contraseña son obligatorios.");
       return;
     }
     if (form.password !== form.confirmpassword) {
-      setMensaje("❌ Las contraseñas no coinciden.");
+      setMensaje("Las contraseñas no coinciden.");
       return;
     }
     try {
@@ -74,10 +73,10 @@ const Perfil = () => {
         passwordactual: form.passwordactual,
         passwordnuevo: form.password,
       });
-      setMensaje("✅ Contraseña actualizada correctamente.");
+      setMensaje("Contraseña actualizada correctamente.");
       setForm({ passwordactual: "", password: "", confirmpassword: "" });
     } catch (error) {
-      setMensaje("❌ Error al actualizar la contraseña.");
+      setMensaje("Error al actualizar la contraseña.");
     }
   };
 
