@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
-import '../styles/mensaje.css';
+import '../styles/Mensaje.css';
 
 const Mensaje = ({ children, tipo }) => {
   const mensajeClase = tipo === 'success' ? 'success' : 'error';
