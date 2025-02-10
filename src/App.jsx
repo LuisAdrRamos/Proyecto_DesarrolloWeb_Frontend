@@ -19,7 +19,7 @@ import TecladosOficina from './pages/tecladosOficina.jsx';
 import TecladosMecanicos from './pages/tecladosMecanicos.jsx';
 import TecladosCustom from './pages/tecladosCustom.jsx';
 import { Confirmar } from "./pages/Confirmar.jsx";
-import NotFound from "./pages/NotFound";
+import { NotFound } from "./pages/NotFound.jsx";
 import { Forgot } from "./pages/Forgot.jsx";
 import Restablecer from './pages/Restablecer.jsx';
 import Crear from './pages/Crear.jsx'; // Importar el componente Crear
