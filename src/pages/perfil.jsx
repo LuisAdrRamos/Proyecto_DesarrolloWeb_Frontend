@@ -40,8 +40,17 @@ const Perfil = () => {
 
   const handleProfileUpdate = async (e) => {
     e.preventDefault();
+
+    const regex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+
     if (!updatedNombre.trim() || !updatedApellido.trim()) {
       setMensaje("El nombre y apellido no pueden estar vacíos.");
+      return;
+    }
+
+    // Validar que solo contengan letras y espacios
+    if (!regex.test(updatedNombre) || !regex.test(updatedApellido)) {
+      setMensaje("El nombre y apellido solo pueden contener letras y espacios.");
       return;
     }
     try {

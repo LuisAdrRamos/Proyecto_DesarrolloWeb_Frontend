@@ -29,6 +29,21 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const regexNombreApellido = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+
+    // Validar que los campos no estén vacíos
+    if (!form.nombre.trim() || !form.apellido.trim() || !form.email.trim() || !form.password.trim()) {
+      setMensaje({ respuesta: "Todos los campos son obligatorios.", tipo: "error" });
+      return;
+    }
+
+    // Validar que los nombres y apellidos solo contengan letras y espacios
+    if (!regexNombreApellido.test(form.nombre) || !regexNombreApellido.test(form.apellido)) {
+      setMensaje({ respuesta: "El nombre y apellido solo pueden contener letras y espacios.", tipo: "error" });
+      return;
+    }
+    
     try {
       const url = `${import.meta.env.VITE_BACKEND_URL}/usuario/registro`;
       const respuesta = await axios.post(url, form);
